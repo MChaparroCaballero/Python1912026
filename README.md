@@ -53,21 +53,21 @@ FerreApp implementa una arquitectura en **4 capas** que separa responsabilidades
 └─────────────────────────────────────────────────────┘
                          ↓
 ┌─────────────────────────────────────────────────────┐
-│  Capa de Acceso a Datos (Data Access Layer)        │
+│  Capa de Acceso a Datos (Data Access Layer)         │
 │  Archivos: app/database.py                          │
 │  - fetch_all_productos()                            │
 │  - fetch_producto_by_id(id)                         │
 │  - insert_producto(...)                             │
 │  - update_producto(...)                             │
 │  - delete_producto(id)                              │
-│  - map_rows_to_productos() ← función helper        │
+│  - map_rows_to_productos() ← función helper         │
 └─────────────────────────────────────────────────────┘
                          ↓
 ┌─────────────────────────────────────────────────────┐
-│  Capa de Persistencia (Base de Datos)              │
+│  Capa de Persistencia (Base de Datos)               │
 │  Archivos: docs/init_db.sql                         │
 │  - Tabla: producto                                  │
-│  - Campos: id_producto, nombre, precio, stock...   │
+│  - Campos: id_producto, nombre, precio, stock...    │
 │  - Motor: MariaDB / MySQL                           │
 └─────────────────────────────────────────────────────┘
 ```
