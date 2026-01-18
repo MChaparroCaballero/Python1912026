@@ -38,18 +38,18 @@ FerreApp implementa una arquitectura en **4 capas** que separa responsabilidades
 ┌─────────────────────────────────────────────────────┐
 │  Capa de Presentación (API REST)                    │
 │  Archivos: app/main.py                              │
-│  - Define endpoints (@app.get, @app.post, etc.)    │
+│  - Define endpoints (@app.get, @app.post, etc.)     │
 │  - Maneja requests/responses HTTP                   │
 │  - Inyecta dependencias                             │
 └─────────────────────────────────────────────────────┘
                          ↓
 ┌─────────────────────────────────────────────────────┐
-│  Capa de Lógica de Negocio (Modelos)               │
-│  Archivos: app/main.py (Pydantic models)           │
+│  Capa de Lógica de Negocio (Modelos)                │
+│  Archivos: app/main.py (Pydantic models)            │
 │  - ProductoBase: validaciones comunes               │
-│  - ProductoCreate/Update: para operaciones CRUD    │
-│  - Producto: modelo completo con ID                │
-│  - Validación automática con @field_validator      │
+│  - ProductoCreate/Update: para operaciones CRUD     │
+│  - Producto: modelo completo con ID                 │
+│  - Validación automática con @field_validator       │
 └─────────────────────────────────────────────────────┘
                          ↓
 ┌─────────────────────────────────────────────────────┐
