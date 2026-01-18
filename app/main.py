@@ -1,9 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Annotated
 from decimal import Decimal
 
-from app.database import fetch_all_productos
+from app.database import fetch_all_productos, fetch_producto_by_id
 
 app = FastAPI(
     title="FerreApp API",
@@ -136,3 +136,30 @@ def listar_productos():
 
     # 3. Retornar como Producto (con validación de Pydantic)
     return productos_db
+
+
+@app.get("/productos/{producto_id}", response_model=Producto)
+def obtener_producto(producto_id: int):
+    """
+    Devuelve un producto específico por su ID.
+    
+    - Obtiene datos raw de MySQL
+    - Mapea a ProductoDB (convierte tipos incompatibles)
+    - Valida estructura con Pydantic
+    - Retorna el Producto o lanza HTTPException 404 si no existe
+    """
+    # 1. Obtener datos desde MySQL
+    row = fetch_producto_by_id(producto_id)
+    
+    # 2. Validar que el producto existe
+    if not row:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Producto con ID {producto_id} no encontrado"
+        )
+    
+    # 3. Mapear a ProductoDB (conversión de tipos)
+    productos_db = map_rows_to_productos([row])
+    
+    # 4. Retornar el primer (y único) elemento
+    return productos_db[0]
