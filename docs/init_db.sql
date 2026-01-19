@@ -47,12 +47,11 @@ INSERT INTO producto (nombre, descripcion, precio, stock, categoria, codigo_sku,
 -- =====================================================
 
 -- Crear usuario (si no existe)
-CREATE USER IF NOT EXISTS 'ferreapp'@'localhost'
+CREATE USER IF NOT EXISTS 'ferreappMaria'@'localhost'
 IDENTIFIED BY 'ferreapp123';
 
 -- Otorgar todos los permisos SOLO sobre la base FerreApp
-GRANT ALL PRIVILEGES ON FerreApp.* TO 'ferreapp'@'localhost';
-
+GRANT ALL PRIVILEGES ON FerreApp.* TO 'ferreappMaria'@'localhost';
 -- Aplicar cambios de privilegios
 FLUSH PRIVILEGES;
 -- SELECT * FROM producto;
