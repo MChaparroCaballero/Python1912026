@@ -79,6 +79,36 @@ class Producto(ProductoBase):
     """Modelo completo de Producto (con ID y validaciones)."""
     id_producto: int
 
+
+# ========================
+# Funciones Helper
+# ========================
+
+def map_rows_to_productos(rows: List[dict]) -> List[ProductoDB]:
+    """
+    Convierte las filas del SELECT * FROM producto (dict) 
+    en objetos ProductoDB. Maneja conversión de tipos incompatibles
+    como Decimal → float.
+    """
+    productos_db = []
+    for row in rows:
+        # Preparar datos para ProductoDB
+        producto_data = dict(row)
+        
+        # Convertir Decimal a float si es necesario
+        if isinstance(producto_data.get("precio"), Decimal):
+            producto_data["precio"] = float(producto_data["precio"])
+        
+        # Garantizar booleano para activo
+        producto_data["activo"] = bool(producto_data.get("activo", False))
+        
+        # Crear objeto ProductoDB desempacando el diccionario
+        producto = ProductoDB(**producto_data)
+        productos_db.append(producto)
+
+    return productos_db
+
+
 @app.get("/ping")
 def ping():
     """Endpoint de prueba."""
