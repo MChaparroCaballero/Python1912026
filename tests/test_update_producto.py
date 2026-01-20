@@ -14,9 +14,9 @@ if __name__ == "__main__":
             nombre='Martillo 16oz reforzado',
             descripcion='Martillo de acero reforzado con mango antideslizante',
             precio=14.90,
-            stock=20,
+            stock=50,
             categoria='Herramientas',
-            codigo_sku='MART-16OZ',
+            codigo_sku='MART-16OZ5',
             activo=True
         )
 
