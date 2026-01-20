@@ -113,3 +113,22 @@ def map_rows_to_productos(rows: List[dict]) -> List[ProductoDB]:
 def ping():
     """Endpoint de prueba."""
     return {"message": "pong"}
+
+@app.get("/productos", response_model=List[Producto])
+def listar_productos():
+    """
+    Devuelve la lista de todos los productos desde la base de datos.
+    
+    - Obtiene datos raw de MySQL
+    - Mapea a ProductoDB (convierte tipos incompatibles)
+    - Valida estructura con Pydantic
+    - Retorna lista de Productos
+    """
+    # 1. Obtener datos desde MySQL
+    rows = fetch_all_productos()
+
+    # 2. Mapear a ProductoDB (conversión de tipos)
+    productos_db = map_rows_to_productos(rows)
+
+    # 3. Retornar como Producto (con validación de Pydantic)
+    return productos_db
