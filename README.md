@@ -391,7 +391,7 @@ FerreApp/
 
 ---
 
-## 🚀 Instalación y Ejecución
+## 🚀 Instalación y Ejecución de la API
 
 ### **Paso 1: Crear entorno virtual**
 
@@ -940,47 +940,6 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 # 6. Acceder a la documentación
 # http://localhost:8000/docs
 ```
-
-## Instrucciones básicas para ejecutar la API.
-Sigue estos pasos para ejecutar el proyecto en tu entorno local:
-
-### 1. Clonar el repositorio
-```bash
-git clone [https://github.com/MChaparroCaballero/Python1912026.git](https://github.com/MChaparroCaballero/Python1912026.git)
-cd Python1912026
-
-### 2. Crea y activa el entorno virtual
-python -m venv .venv
-.\.venv\Scripts\activate
-
-### 3. Instala las dependencias
-pip install -r requirements.txt
-
-### 4.Asegúrate de tener tu servidor de Base de Datos activo y de haber importado el .sql
-
-### 5. Ejecuta la api
-uvicorn src.main:app --reload
-
-### 6. Prueba la api
-Abre tu navegador y ve a la documentación interactiva generada por Swagger
-
-### ⚠️ Tres cosas importantes que debes revisar antes de poner esto:
-
-1.  **El archivo `requirements.txt`:** ¿Lo has creado? Si no, generarlo es muy fácil. Ejecuta esto en tu terminal antes de subir el código:
-    ```bash
-    pip freeze > requirements.txt
-    ```
-    Si no subes este archivo, el profesor no sabrá qué librerías instalar.
-
-2.  **La Base de Datos:** Como no usas ORM, el profesor no puede hacer un "auto-migrate".
-    * ¿Tienes un archivo `.sql` subido al repo con la estructura de la tabla (CREATE TABLE...)?
-    * Si no lo tienes, deberías subirlo o explicar en el paso 4 cómo crear la tabla manualmente.
-
-3.  **El comando de ejecución:** He puesto `src.main:app`.
-    * `src` = la carpeta donde está el código.
-    * `main` = el nombre de tu archivo `.py`.
-    * `app` = el nombre de la variable `FastAPI()`.
-    * *Si tu archivo está en la raíz y se llama `app.py`, el comando sería `uvicorn app:app --reload`.*
 
 ## 🔌 Endpoints de la API
 
