@@ -1,6 +1,7 @@
 # 📚 FerreApp API REST - Guía Educativa
 ## API de Gestión de Productos de Ferretería
-
+## Por María Chaparro Caballero
+[Enlace de perfil de github:](https://github.com/MChaparroCaballero)
 ## 📖 Índice
 1. [Caso de Uso: Historia de Ferremax](#caso-de-uso-historia-de-ferremax)
 2. [El Problema a Resolver](#el-problema-a-resolver)
